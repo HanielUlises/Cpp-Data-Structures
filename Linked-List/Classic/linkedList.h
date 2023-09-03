@@ -3,6 +3,18 @@
 #include "iostream"
 #include "cstdlib"
 
+class Node{
+    public:
+        int item;
+        Node *next;
+
+        Node(int item){
+            this->item = item;
+            this->next = nullptr;
+        }
+
+};
+
 class LinkedList{
     public:
         // Create a new node
@@ -39,16 +51,4 @@ class LinkedList{
         Node *head = nullptr;
         Node *tail = nullptr;
         int length = 0;
-};
-
-class Node{
-    public:
-        int item;
-        Node *next;
-
-        Node(int item){
-            this->item = item;
-            this->next = nullptr;
-        }
-
 };
