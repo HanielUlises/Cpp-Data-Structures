@@ -90,7 +90,7 @@ class LinkedList : public List <t_Data>{
         std::cout<<std::endl;
     }
 
-    int size () const override {
+    int getSize () const override {
         return size;
     }
 
