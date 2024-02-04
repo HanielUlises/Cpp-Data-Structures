@@ -1,5 +1,3 @@
-# Makefile for linkedList project
-
 # Compiler
 CXX = g++
 
