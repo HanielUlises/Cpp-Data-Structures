@@ -1,6 +1,6 @@
 #include "LinkedList.h"
 
-void main (){
+int main (){
     std::unique_ptr<List<int>> test_linked_list = std::make_unique<LinkedList<int>>();
 
     test_linked_list -> insert (1);
