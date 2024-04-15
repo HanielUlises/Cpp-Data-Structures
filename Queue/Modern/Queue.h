@@ -90,6 +90,5 @@ void Queue<T, Allocator>::enqueue(T&& value) {
     ++count;
 }
 
-// Other member function implementations would go here...
 
 #endif // QUEUE_H
