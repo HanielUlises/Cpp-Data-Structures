@@ -1,4 +1,4 @@
-#include "Graph.h"
+#include "graph.h"
 
 Graph::Graph(int num_vertices) : num_vertices(num_vertices), num_edges(0) {
     adj_list.reset(new std::vector<int>[num_vertices]);
