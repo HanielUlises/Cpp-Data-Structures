@@ -10,21 +10,15 @@ class LinkedList : public List <t_Data>{
 
     struct Node{
         t_Data newData;
-        // Reference to the next node of the list
-        // Node type as nodes are self-referent
-        std::unique_ptr<Node> nextNode;
 
-        // Initialization of node
-        // Constructor
-        // At this point i think im making comments pretty similar to a LLM
+        std::unique_ptr<Node> next_node;
+
         Node (const t_Data &_data)
             :data(_data)
         {}
     };
-    // Size count
-    int size = 0;
 
-    // Reference to the head node of the linked list
+    int size = 0;
     std::unique_ptr<Node> head;
 
     public:
@@ -33,7 +27,7 @@ class LinkedList : public List <t_Data>{
     // Proper methods of a linked list
     // Insert data at beginning of a linked list
     void insert (const t_Data &data) override{
-        insertDataBeginning(data);
+        insert_data_beginning(data);
         size++;
     }
 
@@ -46,25 +40,25 @@ class LinkedList : public List <t_Data>{
 
         // Case: The node is the head node
         if (head -> data == data){
-            auto newHead = std::move(head->nextNode);
+            auto newHead = std::move(head->next_node);
             head = std::move(newHead);
             size--;
             return;
         }
 
-        if(!head->nextNode){
+        if(!head -> next_node){
             std::cout<< data << " not found in list" << std::endl;
             return;
         }
 
         // Case: Desired node is an internal node
         Node *prev = head.get();
-        node *next = head->nextNode.get();
+        node *next = head->next_node.get();
 
         // Find the node we desire to remove    
         while (next -> data != data){
             prev = next;
-            next = next -> nextNode.get();
+            next = next -> next_node.get();
         }
 
         // Node was not found within the list
@@ -74,30 +68,27 @@ class LinkedList : public List <t_Data>{
         }
 
         // Update references
-        std::unique_ptr<Node> temp = std::move(next -> nextNode);
-        prev -> nextNode = std::move(temp);
+        std::unique_ptr<Node> temp = std::move(next -> next_node);
+        prev -> next_node = std::move(temp);
     }
 
-    void traverseList () const override{}
-        // Starting with head
+    void traverse_list () const override{
         Node  *node = head.get();
-        // Print out all the nodes
         while (node){
             std::cout << node -> data << " ";
-            // Next node (pretty clever)
-            node = node -> nextNode.get();
+            node = node -> next_node.get();
         }
         std::cout<<std::endl;
     }
 
-    int getSize () const override {
+    int get_size () const override {
         return size;
     }
 
     private:
-    void insertDataBeginning(const t_Data &data){
+    void insert_data_beginning(const t_Data &data){
         std::unique_ptr<Node> newNode = std::make_unique<Node>(data);
-        newNode -> nextNode = std::move(head);
+        newNode -> next_node = std::move(head);
         head = std::move(newNode);
     }
 };  

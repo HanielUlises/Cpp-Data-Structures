@@ -1,8 +1,16 @@
 {
     "files.associations": {
+        ".fantomasignore": "ignore",
         "xlocale": "cpp",
         "xstring": "cpp",
         "stdexcept": "cpp",
-        "xhash": "cpp"
+        "xhash": "cpp",
+        "array": "cpp",
+        "string": "cpp",
+        "string_view": "cpp",
+        "ranges": "cpp",
+        "span": "cpp",
+        "iterator": "cpp",
+        "vector": "cpp"
     }
 }
