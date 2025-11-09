@@ -1,4 +1,4 @@
-#include "DoublyLinkedList.h"
+#include "DLL.h"
 #include <iostream>
 #include <stdexcept>
 
@@ -45,7 +45,7 @@ void DoublyLinkedList<T>::prepend(const T& data) {
 }
 
 template <typename T>
-void DoublyLinkedList<T>::insertAt(const T& data, std::size_t index) {
+void DoublyLinkedList<T>::insert_at(const T& data, std::size_t index) {
     if (index > size) {
         throw std::out_of_range("Index out of range");
     }
@@ -112,7 +112,7 @@ std::size_t DoublyLinkedList<T>::getSize() const {
 }
 
 template <typename T>
-void DoublyLinkedList<T>::printForward() const {
+void DoublyLinkedList<T>::print_forward() const {
     Node<T>* current = head.get();
     while (current) {
         std::cout << current->data << " ";
@@ -122,7 +122,7 @@ void DoublyLinkedList<T>::printForward() const {
 }
 
 template <typename T>
-void DoublyLinkedList<T>::printBackward() const {
+void DoublyLinkedList<T>::print_backward() const {
     Node<T>* current = tail;
     while (current) {
         std::cout << current->data << " ";
