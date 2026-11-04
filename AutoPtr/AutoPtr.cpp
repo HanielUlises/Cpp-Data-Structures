@@ -4,6 +4,11 @@ template <typename T>
 AutoPtr<T>::AutoPtr(T *_m_ptr) : m_ptr(_m_ptr){}
 
 template <typename T>
+T *AutoPtr<T>::get() {
+    return m_ptr;
+}
+
+template <typename T>
 AutoPtr<T>::~AutoPtr() {
     delete m_ptr;
 }
